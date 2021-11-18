@@ -24,8 +24,8 @@ function dequeue(){
     for (let index = 1, index2 = 0; index < collection.length; index++, index2++) {
        newCollection[newCollection.length] = collection[index];
     }
-    collection = newCollection;
-    return newCollection
+    collection = [...newCollection];//this passes the values of newCollection itself instead of passing the reference of newCollection to collection
+    return collection
 }
 
 function front(){
@@ -40,6 +40,7 @@ function isEmpty(){
     if(collection.length !== 0){return false}
 }
 module.exports = {
+    collection,
     print,
     enqueue,
     dequeue,
